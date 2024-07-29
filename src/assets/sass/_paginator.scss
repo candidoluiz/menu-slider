@@ -1,0 +1,19 @@
+.transparente {
+    background: transparent;
+
+    & span {
+        & .p-paginator-page {
+            color: white !important;
+            border-radius: 20px !important;
+        }
+
+        :hover {
+            color: black !important;
+        }
+
+        & .p-highlight {
+            color: black !important;
+            font-weight: 900;
+        }
+    }
+}

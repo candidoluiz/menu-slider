@@ -1,0 +1,39 @@
+<div style="background: transparent;">
+    <div class="row" style="width: 100%;">
+        <div class="col-md-4 col-sm-12"></div>
+        <div class="col-md-4 col-sm-12" style="margin: auto;">
+            <div style="display: flex; margin: 10px;">
+                <div style="margin: auto;">
+                    <input class="form-control mr-sm-1" type="search"  aria-label="Search" style="width: 300px; border-radius: 1.5rem;">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12 mr-2" style="color: white; text-align: end; margin: auto;">
+            <span style="padding-right: 15px; font-weight: bolder; cursor: pointer;" >USUARIO</span>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="container" style="min-height: calc(100vh - 140px);">
+    <div class="row vidro" style="min-height: 80vh;">    
+        <ng-container *ngFor="let item of itens">
+            <div class="col-md-3" style="text-align: center; min-height: 250px;">
+                <div class="card" style="height: 150px; width: 150px; border-radius: 50px; cursor: pointer; margin: auto;" >
+                    <!-- <a [routerLink]="['/'+item.link]"></a> -->
+                    <a [routerLink]="['/teste']"></a>
+                    <mat-icon style="width: 150px; height: 150px; width: 150px; height: 150px; color: cornflowerblue;" svgIcon="account"></mat-icon>
+                    <span style="color: white;">USUARIO</span>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
+<p-paginator 
+    (onPageChange)="onPageChange($event)" 
+    [first]="first" 
+    [rows]="rows" 
+    [totalRecords]="16"
+    styleClass="transparente"
+    [showFirstLastIcon]="false"   
+></p-paginator>
