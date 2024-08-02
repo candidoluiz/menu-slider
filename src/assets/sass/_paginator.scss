@@ -16,4 +16,41 @@
             font-weight: 900;
         }
     }
+
+    & .p-paginator-prev  {
+        display: none;
+    }
+
+    & .p-paginator-next {
+        display: none;
+    }
 }
+
+.container-p .pagination {
+    position: relative;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(3px);
+    border-radius: 2px;
+  }
+  .container-p .pagination li {
+    list-style-type: none;
+    display: inline-block;
+  }
+  .container-p .pagination li a {
+    position: relative;
+    padding: 15px 22px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+  }
+  .container-p .pagination li a:hover,
+  .container-p .pagination li.active a {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 34px;
+  }
+  

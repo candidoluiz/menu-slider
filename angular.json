@@ -4,15 +4,7 @@
   "newProjectRoot": "projects",
   "projects": {
     "template-android": {
-      "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        },
-        "@schematics/angular:application": {
-          "strict": true
-        }
-      },
+      "projectType": "application",   
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -113,5 +105,28 @@
       }
     }
   },
-  "defaultProject": "template-android"
+  "defaultProject": "template-android",
+  "schematics": {
+    "@schematics/angular:component": {
+        "prefix": "app",
+        "style": "scss",
+        "skipTests": true
+    },
+    "@schematics/angular:directive": {
+        "prefix": "app",
+        "skipTests": true
+    },
+    "@schematics/angular:angular:module": {
+        "skipTests": true
+    },
+    "@schematics/angular:class": {
+        "skipTests": true
+    },
+    "@schematics/angular:pipe": {
+        "skipTests": true
+    },
+    "@schematics/angular:service": {
+        "skipTests": true
+    }
+  }
 }

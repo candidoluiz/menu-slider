@@ -4,36 +4,75 @@
         <div class="col-md-4 col-sm-12" style="margin: auto;">
             <div style="display: flex; margin: 10px;">
                 <div style="margin: auto;">
-                    <input class="form-control mr-sm-1" type="search"  aria-label="Search" style="width: 300px; border-radius: 1.5rem;">
+                    <input [formControl]="pesquisa" class="form-control mr-sm-1" type="search"  aria-label="Search" style="width: 300px; border-radius: 1.5rem;" >
                 </div>
             </div>
         </div>
         <div class="col-md-4 col-sm-12 mr-2" style="color: white; text-align: end; margin: auto;">
-            <span style="padding-right: 15px; font-weight: bolder; cursor: pointer;" >USUARIO</span>
+            <!-- <span style="padding-right: 15px; font-weight: bolder; cursor: pointer;" >USUARIO</span> -->
+            <div class="dropdown">
+                <button style="background: transparent; border: none;" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  USUARIO
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </div>
         </div>
     </div>
 </div>
 <br>
 
 <div class="container" style="min-height: calc(100vh - 140px);">
-    <div class="row vidro" style="min-height: 80vh;">    
-        <ng-container *ngFor="let item of itens">
-            <div class="col-md-3" style="text-align: center; min-height: 250px;">
-                <div class="card" style="height: 150px; width: 150px; border-radius: 50px; cursor: pointer; margin: auto;" >
-                    <!-- <a [routerLink]="['/'+item.link]"></a> -->
-                    <a [routerLink]="['/teste']"></a>
-                    <mat-icon style="width: 150px; height: 150px; width: 150px; height: 150px; color: cornflowerblue;" svgIcon="account"></mat-icon>
-                    <span style="color: white;">USUARIO</span>
-                </div>
-            </div>
-        </ng-container>
+    <div class="row vidro" style="height: 80vh;">
+        <mat-tab-group dynamicHeight [selectedIndex]="selectedTabIndex" class="invisible-tabs">
+
+            <ng-container *ngFor="let tab of navegacaoService.menuAsObservable | async">
+                <mat-tab label="First"> 
+                    <div class="row" style="width: 100%;">
+                        <ng-container *ngFor="let item of tab">
+                            <div class="col-md-3" style="text-align: center; min-height: 250px;">
+                                <div class="card card-shake icones"  [routerLink]="['/configuracao/perfil']">
+                                    <mat-icon style="width: 150px; height: 150px; width: 150px; height: 150px; color: cornflowerblue;" svgIcon="account"></mat-icon>
+                                    <span style="color: white;">USUARIO</span>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div> 
+                </mat-tab>
+            </ng-container>                                         
+        </mat-tab-group>       
     </div>
 </div>
+
+<!-- <div class="container-p">
+    <ul class="pagination">    
+      <li >
+        <a (click)="goMenu()">1</a>
+      </li>
+      <li class="active">
+        <a (click)="goMenu()">2</a>
+      </li>
+      <li>
+        <a (click)="goMenu()">3</a>
+      </li>
+      <li>
+        <a (click)="goMenu()">4</a>
+      </li>
+      <li>
+        <a (click)="goMenu()">5</a>
+      </li>     
+    </ul>
+  </div> -->
+
 <p-paginator 
     (onPageChange)="onPageChange($event)" 
     [first]="first" 
-    [rows]="rows" 
-    [totalRecords]="16"
+    [rows]="1" 
+    [totalRecords]="menus.length"
     styleClass="transparente"
-    [showFirstLastIcon]="false"   
+    [showFirstLastIcon]="false"
+    [pageLinkSize]="20"
 ></p-paginator>
